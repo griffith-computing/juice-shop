@@ -35,7 +35,7 @@ jobs:
         
     - uses: azure/cli@v1.0.0      
       with:        
-        inlineScript: az deployment group create --resource-group ${{ secrets.DEVRESOURCEGROUP }} --name deployinfradev --template-file ARM-DevSecOps.json        
+        inlineScript: az deployment group create --resource-group ${{ secrets.DEVRESOURCEGROUP }} --name deployinfradev --template-file ARM-DevSecOps.json --parameters sqlAdminLoginName=${{ secrets.SQL_ADMIN_LOGIN }} sqlAdminObjectId=${{ secrets.SQL_ADMIN_OBJECT_ID }}        
         azcliversion: latest  
         
   DeployProdInfrastructure_Stage_DeployInfrastructure:    
@@ -53,5 +53,5 @@ jobs:
         allow-no-subscriptions: true    
     - uses: azure/cli@v1.0.0      
       with:        
-        inlineScript: az deployment group create --resource-group ${{ secrets.PRODRESOURCEGROUP }} --name deployinfraprod --template-file ARM-DevSecOps-Prod.json        
+        inlineScript: az deployment group create --resource-group ${{ secrets.PRODRESOURCEGROUP }} --name deployinfraprod --template-file ARM-DevSecOps-Prod.json --parameters sqlAdminLoginName=${{ secrets.SQL_ADMIN_LOGIN }} sqlAdminObjectId=${{ secrets.SQL_ADMIN_OBJECT_ID }}        
         azcliversion: latest
