@@ -53,5 +53,5 @@ jobs:
         allow-no-subscriptions: true    
     - uses: azure/cli@v1.0.0      
       with:        
-        inlineScript: az deployment group create --resource-group ${{ secrets.PRODRESOURCEGROUP }} --name deployinfraprod --template-file ARM-DevSecOps-Prod.json --parameters sqlAdminLoginName=${{ secrets.SQL_ADMIN_LOGIN }} sqlAdminObjectId=${{ secrets.SQL_ADMIN_OBJECT_ID }}        
+        inlineScript: az deployment group create --resource-group ${{ secrets.PRODRESOURCEGROUP }} --name deployinfraprod --template-file ARM-DevSecOps-Prod.json
         azcliversion: latest
